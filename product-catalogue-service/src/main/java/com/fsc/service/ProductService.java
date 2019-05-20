@@ -24,4 +24,8 @@ public class ProductService {
 		car.setStock(isInternallCall ? car.getStock() : 0l);
 		return car;
 	}
+
+	public Car findProduct() {
+		return new Car(1L,1000L, "ECOSPORT", "Petrol Car");
+	}
 }

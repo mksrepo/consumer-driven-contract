@@ -3,6 +3,8 @@ package com.fsc.api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fsc.model.Car;
@@ -22,5 +24,10 @@ public class ProductRestController {
 	@GetMapping(Constants.ECOMMERCE_GET_URL)
 	public Car externalFindProductById(@PathVariable("id") Long id) {
 		return productService.findProductById(id, false);
+	}
+
+	@PostMapping(Constants.CFC_QUOTE_URL)
+	public Car externalFindProductById(@RequestBody Car car) {
+		return productService.findProduct();
 	}
 }
